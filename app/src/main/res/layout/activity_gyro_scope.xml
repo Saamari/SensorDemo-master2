@@ -7,11 +7,11 @@
     tools:context="com.example.kaupp.sensordemo.gyroScope">
     <TextView
         android:id="@+id/gyroscope"
-        android:layout_width="64dp"
-        android:layout_height="324dp"
-        android:text="X:  Y:  Z:"
-
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:layout_weight="0.06" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

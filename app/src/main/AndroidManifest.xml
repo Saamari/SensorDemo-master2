@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".accelerationActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,8 +17,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".SensorMenu" />
-
-        <activity android:name=".gyroScope"></activity>
+        <activity android:name=".gyroScope" />
+        <activity android:name=".Light" />
+        <activity android:name=".accelerationActivity" />
+        <activity android:name=".MagneticField" />
+        <activity android:name=".Gravity" />
+        <activity android:name=".AmbientTemperature" />
+        <activity android:name=".Pressure" />
+        <activity android:name=".Proximity" />
+        <activity android:name=".RotationVector" />
+        <activity android:name=".LinearAcceleration" />
+        <activity android:name=".Humidity"></activity>
     </application>
 
 </manifest>
