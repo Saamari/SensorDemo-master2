@@ -23,4 +23,6 @@ public class MainActivity extends AppCompatActivity {
         Intent SensorMenu = new Intent(this, SensorMenu.class);
         startActivity(SensorMenu);
     }
+
+
 }

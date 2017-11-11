@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SensorMenu" />
-        <activity android:name=".accelerationActivity"></activity>
+        <activity android:name=".accelerationActivity" />
+        <activity android:name=".gyroScope"></activity>
     </application>
 
 </manifest>
