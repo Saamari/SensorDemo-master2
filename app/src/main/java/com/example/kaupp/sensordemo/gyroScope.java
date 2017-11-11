@@ -21,8 +21,8 @@ public class gyroScope extends AppCompatActivity implements SensorEventListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gyro_scope);
-
         textView = (TextView) findViewById(R.id.gyroscope);
+
 
         sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(sensor.TYPE_GYROSCOPE);

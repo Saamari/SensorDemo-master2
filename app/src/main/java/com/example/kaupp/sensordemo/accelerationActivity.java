@@ -1,18 +1,20 @@
 package com.example.kaupp.sensordemo;
 
+import android.app.Service;
+import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Bundle;
+import android.support.annotation.StyleRes;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.widget.TextView;
 
-public class accelerationActivity extends AppCompatActivity {
-
-    Sensor accelerometer;
-    SensorManager sm;
-    TextView acceleration;
+public class accelerationActivity extends AppCompatActivity implements SensorEventListener {
+    TextView textView;
+    SensorManager sensorManager;
+    Sensor sensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,20 +22,37 @@ public class accelerationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_acceleration);
 
 
+        textView = (TextView) findViewById(R.id.acceleration);
 
-        sm = (SensorManager)getSystemService(SENSOR_SERVICE);
-        accelerometer = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        sm.registerListener((SensorEventListener) this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-
-        acceleration = (TextView) findViewById(R.id.accelerometer);
+        sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(sensor.TYPE_ACCELEROMETER);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener((SensorEventListener) this);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener((SensorEventListener) this,sensor,sensorManager.SENSOR_DELAY_NORMAL);
+    }
+
 
     public void onSensorChanged(SensorEvent sensorEvent) {
-        acceleration.setText("X: " +sensorEvent.values [0]+
-                "/n Y: " + sensorEvent.values [1] +
-                "/n Z: " + sensorEvent.values [2]);
 
+        if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+
+            textView.setText("X   "+ sensorEvent.values[0]+ "Y   " + sensorEvent.values[1] + "Z     " + sensorEvent.values[2]);
+        }
     }
 
+
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
     }
+}
 
